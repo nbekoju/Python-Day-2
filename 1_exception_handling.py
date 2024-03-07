@@ -1,13 +1,3 @@
-class WeakPasswordError(Exception):
-    pass
-
-try:
-    password = input("Enter new password: ")
-    if len(password) < 8:
-        raise WeakPasswordError("Password length should be greater than 8")
-except WeakPasswordError as e:
-    print("Error: ", e)
-    
 # Write a Python program that takes two integers as input and performs division (num1 / num2). Handle the ZeroDivisionError and display a custom error message when the second number is zero.
 
 try:
@@ -70,4 +60,13 @@ except InvalidAgeError as e:
 # Implement a program that reads user input for a password. Create a custom exception WeakPasswordError to handle cases where the password is shorter than 8 characters.
 
 # Hint: WeakPasswordError that inherits Exception class
+class WeakPasswordError(Exception):
+    pass
+
+try:
+    password = input("Enter new password: ")
+    if len(password) < 8:
+        raise WeakPasswordError("Password length should be greater than 8")
+except WeakPasswordError as e:
+    print("Error: ", e)
 
