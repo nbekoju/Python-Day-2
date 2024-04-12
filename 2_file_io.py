@@ -1,8 +1,14 @@
 # Implement a program that reads a CSV file named "data.csv," containing columns "Name" and "Age." Create a new CSV file called "adults.csv" with only the rows of individuals who are 18 years or older.
 
 import csv
+import logging
+
+
 input_file = "data.csv"
 output_file = "adults.csv"
+
+logging.basicConfig(filename='file_io.log', encoding='utf-8', level=logging.DEBUG)
+
 
 try:
     with open(input_file, 'r', newline='') as infile, open(output_file, 'w', newline='') as outfile:
@@ -16,8 +22,8 @@ try:
             if int(row["Age"]) >= 18:
                 writer.writerow(row)
 
-except FileNotFoundError:
-    print(f"Error: {input_file} or {output_file} File Not Found")
+except FileNotFoundError as e:
+    logging.error(e)
 
 # Create a function add_to_json that takes a filename and a dictionary as input. The function should read the JSON data from the file, add the new dictionary to it, and write the updated data back to the same file.
 
@@ -59,8 +65,8 @@ def search_log(log_file, keyword):
             for line in file:
                 if keyword in line:
                     print(line)
-    except FileNotFoundError:
-        print(f"Error: {log_file} File not found")
+    except FileNotFoundError as e:
+        logging.error(e)
 
 log_file = "test.log"
 keyword = "apple"

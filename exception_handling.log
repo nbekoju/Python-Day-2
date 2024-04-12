@@ -1,0 +1,4 @@
+ERROR:root:f{e}
+ERROR:root:division by zero
+ERROR:root:invalid literal for int() with base 10: 'asd'
+ERROR:root:invalid literal for int() with base 10: 'ksjdf'
